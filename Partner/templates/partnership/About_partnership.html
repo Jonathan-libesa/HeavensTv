@@ -1,0 +1,82 @@
+{% extends 'main/index.html'%}
+{%load static%}
+{%block title%}
+About Partnership
+{%endblock%}
+
+{%block content%}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid bg-jumbotron" style="margin-bottom: 90px; background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url({%  static 'assets/img/church.png' %}), no-repeat center center;background-size: cover;">
+        <div class="container text-center py-5">
+            <h3 class="text-white display-3 mb-4">About Partnership</h3>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="{% url 'home' %}">Home</a></p>
+                <i class="far fa-circle px-3"></i>
+                <p class="m-0">About Partner</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+    <div class="container">
+		<div class="text-block-wrapper">
+			<h1>Why Become a Partner</h1>
+			<p>Heavens TV Partners have decided to commit themselves to the cause of OpenHeavensministry which is to reach a generation without faith and hope, telling the sweet story of our Lord Jesus Christ and reaching out to a troubled world with His compassion and generosity.</p>
+		</div>
+    </div>
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100" src="{%  static 'assets/img/giving.jpg' %}" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="mb-4" >As An Heavens TV Partner, You Will Receive:</h1>
+                    <ol>
+                    		<li> A personal partner number.</li>
+                    		<li> News and updates from the Heavens TV Team.</li>
+                    		<li> Notice of upcoming crusades and events</li>
+                    		<li> A dedicated prayer and counseling telephone line.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    <!-- About Start -->
+    <div class="container-fluid py-0">
+        <div class="container py-1">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100" src="{%  static 'assets/img/charity.jpg' %}" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">About Us</h6>
+                    <h1 class="mb-4">Where Does My Gift Go?</h1>
+                    <p class="pl-4 border-left border-primary">We always want the best from God, therefore when you give, you should plant the best seed you have. When you give, you are planting seeds that will be multiplied back unto you. Partnership is the decision to give God your best.</p>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <div class="bg-light text-center p-4">
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">100</h3>
+                                <h6 class="text-uppercase">orphan and widows helped</h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light text-center p-4">
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">25</h3>
+                                <h6 class="text-uppercase">Happy Children home</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+<div class="container py-5">
+	<h5 style="text-align:center;text-color: purple;">PARTNERSHIP PAYMENT METHODS</h5>
+	
+</div>
+
+
+{% endblock %}

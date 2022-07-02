@@ -1,0 +1,48 @@
+{% extends 'main/index.html'%}
+{% load embed_video_tags %}
+{% load static %}
+{% block title %}
+ Teaching
+{% endblock %}
+<link href="{% static 'assets/css/home.css' %}" rel="stylesheet">
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid bg-jumbotron" style="margin-bottom: 90px; background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url({%  static 'assets/img/preaching.jpg' %}), no-repeat center center;background-size: cover;">
+        <div class="container text-center py-5">
+            <h3 class="text-white display-3 mb-4">Teachings</h3>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-link" href="{% url 'home' %}">Home</a></p>
+                <i class="far fa-circle px-3"></i>
+                <a href="{% url 'testmony' %}"><p class="m-0">Testmonies</p></a>
+            </div>
+        </div>
+    </div>
+<div class="container">
+  <div class="post-preview">
+    <p class="post-intro">Mark 16:15 And he said to them, “Go into all the world and proclaim the gospel to the whole creation.”</p>
+  </div>
+</div>
+<section class="s1">
+    <div class="main-container">
+      <h3 style="text-align: center;">Lastest Teaching</h3>
+   
+      <div class="post-wrapper">
+        {% for item in preach %}
+        <div>
+          <div class="post">
+           <div class="thumbnail">
+            {% video item.youtube '100% x 120%' %}
+           </div>
+            <div class="post-preview">
+              <br><br>
+              <p class="post-intro">{{item.title_teaching}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'main/index.html'%}
+{%load static%}
+{%block title%}
+About Open Heavens Ministry
+{%endblock%}
+{%block content%}
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+<body>
+  <section class="s1">
+    <div class="main-container">
+      <div class="greeting-wrapper">
+        <h1>ABOUT US</h1>
+      </div>
+       <h5 style="text-align:center;color: #800080;">OPEN HEAVENS MINISTRY</h5> 
+
+      <div class="intro-wrapper">
+        <div class="nav-wrapper">
+
+          <!-- Link around dots-wrapper added after tutorial video -->
+          <a href="{% url 'about' %}">
+            <div class="dots-wrapper">
+              <div id="dot-1" class="browser-dot"></div>
+              <div id="dot-2" class="browser-dot"></div>
+              <div id="dot-3" class="browser-dot"></div>
+            </div>
+          </a>
+          
+        </div>
+
+        <div class="left-column">
+          {% for abouts in about %}
+          <img class="profile_pic" src="{{abouts.Photo.url}}"><br><br> 
+          <h3 style="text-align: center;line-height: 0; color:#800080;">THE FOUNDER </h3><br>
+          <h5 style="text-align: center;line-height: 0; color:#D4AF37;text-transform: uppercase;">Prophet Allan Jomba</h5>
+        </div>
+
+        <div class="right-column">
+
+          <div id="preview-shadow">
+            <div id="preview">
+              <div id="corner-tl" class="corner"></div>
+              <div id="corner-tr" class="corner"></div>
+              <h3>What We Do</h3>
+              <p style="text-transform: lowercase;">{{abouts.Description}}</p>
+              <div id="corner-br" class="corner"></div>
+              <div id="corner-bl" class="corner"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s2">
+    <div class="main-container">
+
+      <div class="about-wrapper">
+        <div class="about-me">
+          <h4>More about us</h4>
+          <h4>Our Purpose As a Ministry</h4>
+                <ul>
+                  <li>DESTINED TO TAKE THE GOSPEL OF OUR LORD JESUS CHRIST TO THE WORLD.</li><br>
+
+                  <li>DISTANCE IS NOT A BARRIER.THE ONLY THING YOU NEED IS FAITH.</li><br>
+
+                  <li>2 Chronicles 7:15 Now my eyes will be open and my ears attentive to the prayers offered in this place.</li>
+                  
+                </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+</body>
+{% endblock %}

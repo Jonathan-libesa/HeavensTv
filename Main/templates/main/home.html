@@ -1,0 +1,192 @@
+{% extends 'main/index.html'%}
+{% load embed_video_tags %}
+{% load static %}
+<style>
+  #sema{
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+</style>
+<link href="{% static 'assets/css/home.css' %}" rel="stylesheet">
+{% block content %}
+{% include 'main/messages.html'%}
+ <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+       <div class="carousel-inner">
+   
+    </div>
+        <!-- Slide 1 -->
+        {% for page in pages %}
+        <div class="carousel-item {% if forloop.counter0 == 0%} active {% endif %}" style="background-image:url({{page.image.url}});" >
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">{{page.Title}}</h2>
+              <p class="animate__animated animate__fadeInUp">{{page.Description}}</p>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+      </div>
+   
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services section-bg">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-laptop"></i></div>
+              <h4 class="title">Heavens Tv</h4>
+              <p class="description">GET US ON SIGNET SIGNAL.OUR PURPOSE IS TALK ABOUT JESUS CHRIST AND SPREAD THE GOSPEL</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-clock"></i></div>
+              <h4 class="title"><a href="">Preaching</a></h4>
+              <p class="description">PROPHET ALLAN JOMBA IS ALWAYS LIVE ON HEAVEN TV FROM MONDAY-SATURDAY AT 9:00PM-10:00PM EAT TIME </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              <h4 class="title">Sunday Service</h4>
+              <p class="description">ALL ARE WELOMED TO OUR SUNDAY SERVICES AT KANGEMI PRIMARY WHICH BEGINS AT 9:00AM EAT TIME </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h1>About Us</h1>
+          <p> .</p>
+          <h2>OPEN HEAVENS MINISTRY</h2>
+        </div>
+        {% for abouts in about %}
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{{abouts.Photo.url}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>{{abouts.title}}</h3>
+            <ul>
+              <li><i class="bi bi-check-circled"></i>FOUNDED BY PROPHET ALLAN JOMBA</li>
+              <li><i class="bi bi-check-circled"></i>DESTINED TO TAKE THE GOSPEL OF OUR LORD JESUS CHRIST TO THE WORLD.</li>
+              <li><i class="bi bi-check-circled"></i>DISTANCE IS NOT A BARRIER.THE ONLY THING YOU NEED IS FAITH.</li>
+            </ul>
+            <p>{{abouts.Description}}</p>
+            <a href="{% url 'about' %}"><button id="sema" class="animate__animated animate__fadeInUp scrollto" style="background-color: purple; border: none; color: white;padding: 5px 15px; text-align:center;text-decoration: none;display: inline-block; font-size: 16px;">READ MORE</button></a></p> 
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  <!-- End About Us Section -->
+  <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>PRAYER REQUEST</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row animate__animated animate__fadeInUp scrollto">
+          <div class=" col-md-5 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{%  static 'assets/img/praying.jpeg' %}" alt="">
+              <span>Prayer Request</span>
+              <p>
+               Send us Your Prayer Request and we will stand steadfastly in faith with you
+              </p>
+              <span><h5>Call us or simple fill the form</h5></span><br><br>
+
+              <button style="background-color: purple; border: none; color: white;padding: 5px 15px; text-align:center;text-decoration: none;display: inline-block; font-size: 16px;"> CALL @ +254114839803 0R +254777266265</button>
+            </div>
+          </div>
+          <section class="col-md-7 d-flex align-items-stretch">
+            <div class="main-container">
+              <a href=""></a>
+              <h3 style="text-align: center;">Prayer Request Form,Please Fill Your Prayer Request Here</h3>
+               
+              <form id="contact-form" method="post" action="">
+                <a name="contact"></a>
+                {% csrf_token %}
+                <label>Name</label>
+                <input class="input-field" type="text" name="name" placeholder="Your Name">
+
+                <label>Country</label>
+                <input class="input-field" type="text" name="country" placeholder="The Country you come from">
+
+                <label>Email</label>
+                <input class="input-field" type="text" name="email" placeholder="Your Email for example john@gmail.com" >
+                
+                <label>Phone</label>
+                <input class="input-field" type="text" name="phone" placeholder="your phone Number">
+
+                <label>Message</label>
+                <textarea class="input-field" name="message" placeholder="Your Message or the problem you need us to pray for you"></textarea>
+                <input id="submit-btn" type="submit" value="Send Prayer">
+              </form>
+            </div>
+          </section> 
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+     <div class="container">
+          <p class="post-intro"> John 15:27 and you will testify also, because you have been with Me from the beginning.</p>
+      </div>
+    <section class="s1">
+      <div class="main-container">
+        <h3 style="text-align: center;">Lastest Testmonies</h3>
+        <div class="post-wrapper">
+          {% for item in youtube %}
+          <div>
+            <div class="post">
+             <div class="thumbnail">
+              {% video item.Video '100% x 120%' %}
+             </div>
+              <div class="post-preview">
+                <br><br>
+                <p class="post-intro">{{item.Title}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="row col-md-12 mb-2 justify-content-center">
+           <a href="{% url 'testmony' %}"><button id="sema" class="animate__animated animate__fadeInUp scrollto" style="background-color: purple; border: none; color: white;padding: 5px 15px;text-align:center;text-decoration: none;display: inline-block; font-size: 16px;">View More Testominies</button></a></p>
+          </div>
+        </div>
+      </div>
+  </section>
+{% endblock %}
