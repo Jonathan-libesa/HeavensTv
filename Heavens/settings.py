@@ -31,11 +31,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','openheavensministry.herokuapp.com']
 
-
+AUTH_USER_MODEL='Users.User'
 # Application definition
 
 INSTALLED_APPS = [
    #'phonenumber_field',
+   'Users',
    'Partner',
    'Testmony',
    'Preaching',

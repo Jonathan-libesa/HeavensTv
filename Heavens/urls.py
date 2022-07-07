@@ -12,6 +12,7 @@ urlpatterns = [
     path('', include('Testmony.urls')),
     path('', include('Preaching.urls')),
     path('',include('Partner.urls')),
+    #path('',include('Mpesa.urls')),
 
 ]
 

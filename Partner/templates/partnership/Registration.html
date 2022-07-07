@@ -1,0 +1,110 @@
+{%load static%}
+<!DOCTYPE html>
+<!-- favicon icon-->
+     <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico'%}">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="{% static 'assets/css/form.css' %}">
+   <title>Register</title>
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+   </head>
+<body>
+  {% include 'main/messages.html'%}
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="{% static 'assets/img/frontImg.jpg' %}" alt="">
+        <div class="text">
+          <span class="text-1">Every new Partner is a <br> Gift to needy </span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="{% static 'assets/img/backImg.jpg' %}" alt="">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+       {% include 'partnership/login.html'%}
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form  method="POST" action="">
+          {%csrf_token%}
+            <div class="input-boxes">
+              <div class="input-box">
+                {{form.first_name}}
+                <i class="fas fa-user"></i>
+               <input type="text" placeholder="Enter your First_name" >
+              </div>
+             
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your last_name">
+                {{form.last_name}}
+              </div>
+              
+              <div class="input-box">
+                <i class="fa fa-phone"></i>
+                <input type="text" placeholder="Enter your phone Number">
+                {{form.phone}}
+              </div>
+              
+              <!-- adding all country code list -->
+               <!--div class="input-box">
+                 <i class="fa fa-phone"></i>
+                  <input type="text" placeholder="Phone number *" name="phone" id="phone" required autofocus>
+               </div-->
+              <div class="input-box">
+                <i class="fas fa-flag"></i>
+                <input type="text" placeholder="Enter your Country">
+                {{form.country}}
+              </div>
+              
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter your email">
+                 {{form.email}}
+              </div>
+             
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password">
+                {{form.password1}}
+              </div>
+              
+               <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm Your password">
+                {{form.password2}}
+              </div>
+              
+              <div class="button input-box">
+                <input type="submit" value="Register Account">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+    <!-- Javascript to initialize the code list -->
+    <script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+     separateDialCode: true
+     });
+   </script>
+  </div>
+</body>
+</html>
+ 
+

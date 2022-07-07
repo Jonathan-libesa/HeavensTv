@@ -1,0 +1,70 @@
+{% extends 'main/index.html'%}
+{% load static %}
+{% block content %}  
+<link rel="stylesheet" href="{% static 'assets/css/partner.css' %}">
+
+<div id="container">
+        <div class="column-6">
+            <div id="left-wrapper">
+                <img id="profile-pic" src="{% static 'assets/img/allan.JPG' %}">
+                <div id="left-wrapper-header">
+                    <h3>Donate</h3>
+                    <h5>One Time Donation</h5>
+                </div>
+                <div style="clear:left"></div>
+                <hr>
+                <!-- Add form here -->
+                <form action="" method="post" id="payment-form">
+                    {% csrf_token %}
+                    <div class="form-field-12">
+                        <label for="amount">Enter Amount:</label>
+                        <br>
+                        <br>
+                         {{donate_form.amount}}
+             
+                    </div>
+                    <div class="form-field-6">
+                      <label for="email">Enter Your Email</label>
+                       {{donate_form.email}}
+                    </div>
+                     
+
+                    <div class="form-field-6">
+                        <label for="Name">Enter Your Name</label>
+                        {{donate_form.Name}}
+                    </div>
+                    
+
+                  <div class="form-row">
+
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+                  </div>
+                  
+                  <div style="clear:left"></div>
+                  <hr>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <div id="paypal-button-container"></div>
+                </form>
+
+            
+            </div>
+        </div>
+
+        <div class="column-6">
+            <div id="right-wrapper">
+
+                <img class="coffee-cup" src="{% static 'assets/img/Coffee5.png' %}">
+                <img class="coffee-cup2" src="{% static 'assets/img/Coffee10.png' %}">
+                <img class="coffee-cup3" src="{% static 'assets/img/Coffee25.png' %}">
+                <p>“With your help, we will continue to tell the world about God’s unconditional love and unending hope found in a relationship with Jesus Christ. With God’s help, you can Discover the Champion in You!” – Prophet Allan Jomba</p>
+
+                <p>Proverbs 11:24
+                One person gives freely, yet gains even more; another withholds unduly, but comes to poverty.</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
+{% endblock %}
