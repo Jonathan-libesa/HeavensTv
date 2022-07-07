@@ -7,5 +7,6 @@ urlpatterns = [
     path('login/',views.loginpage,name="login"),
     path('logout/',views.logoutUser,name="logout"),
     path('donate_view/',views.donate,name="give"),
+    #path('donate/<str:pk>',views.charge,name="donate")
     
  ] 
