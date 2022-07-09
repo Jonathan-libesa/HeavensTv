@@ -1,0 +1,47 @@
+{% extends 'partnership/partner_home.html' %}
+{%load static%}
+{% block title%}
+Contribution_View
+{% endblock %}
+{% block content %}
+<br>
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="{% static 'assets/css/partner_home.css' %}" rel="stylesheet">
+<div class="row col-md-12 mb-2 justify-content-center">
+  <a href="{% url 'form_contribute' %}"class="btn btn-info btn-block col-sm-4" type="button" id="new_forum"><i class="fa fa-plus"></i>Make Contribution</a>
+</div>
+<br> 
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title" style="text-align:center;">TRANSCATION HISTORY</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+        <th>Catergory</th>
+        <th>Amount</th>
+        <th>Date_Created</th>s
+        </tr>
+      </thead>
+      {% for club in contribute %}
+      <tr>
+        <td> {{club.categories}}</td>
+        <td> {{club.amount}}</td>
+        <td>{{club.date_created}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row" style="justify-content:center;">
+    <h3 style="text-white">Total Amount Contributed:{{total_contribute}}</h3>
+    
+  </div>
+  
+</div>
+{% endblock content %}

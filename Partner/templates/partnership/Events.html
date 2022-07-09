@@ -1,0 +1,57 @@
+{% extends 'partnership/partner_home.html'%}
+{% load static %}
+{% block title %}
+ Event
+{% endblock %}
+{% block content %}
+
+<!-- Begin Page Content -->
+                <div class="container-fluid">
+                	 <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">RECENT EVENTS</h1>
+                    </div>
+                    <div class="row padding">
+						      {% for event in events %}
+						        <div class="col-md-6">
+						           <div class="card">
+						             {% if event.image %}
+						                <img src="{{event.image.url}}" class="card-img-top">
+						             {% endif %}
+						                <div class="card-body">
+						                    
+						                  <h3 class="card-header"style="text-transform: uppercase;">{{event.Title}}</h3>
+						                  <span class="filter-txt"><small><b><i class="fa fa-time">POSTED:</i>{{event.date_created|timesince}} ago</b></small></span>
+						                  <hr class="divider"  style="max-width: calc(100%)">
+						                  <br>
+						                  <p class="card-text">{{event.description|safe}}</p>
+						                  <hr class="divider"  style="max-width: calc(100%)">
+						                </div>
+						            </div>
+						        </div>
+						       {% empty %}
+						            <div class="col-md-12">
+						               <div class="card">
+						                    <div class="card-body">
+						                      <hr class="divider"  style="max-width: calc(100%)">
+						                      <br>
+						                      <p class="card-text text-black "style="text-align: center;">NO EVENT TO DISPLAY</p>
+						                      <hr class="divider"  style="max-width: calc(100%)">
+						                    </div>
+						                </div>
+						            </div>
+						       {% endfor %}
+						    </div>
+						</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+{% endblock %}
+

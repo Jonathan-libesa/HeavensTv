@@ -9,7 +9,7 @@
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://web.facebook.com/seniorprophetjomba" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
@@ -24,6 +24,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a class="nav-link scrollto active" href="{% url 'home_partner' %}">Dashboard</a></li>
+          {% endif %}
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
           <li><a class="nav-link scrollto" href="{% url 'preach_view' %}">Preaching</a></li>
           <li><a class="nav-link scrollto " href="{% url 'testmony' %}">Testimonies</a></li>
@@ -33,7 +36,7 @@
              
               <li><a href="#">Partenship Payment</a></li>
               <li><a href="{% url 'Register' %}">Sign Up</a></li>
-              <li><a href="{% url 'Register' %}">Login</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{% url 'contact_open' %}">Contact</a></li>

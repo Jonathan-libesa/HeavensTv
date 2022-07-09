@@ -1,0 +1,10 @@
+{% extends 'main/index.html'%}
+{% load static %}
+{% block content %}
+<form action="" method="POST">
+ {%csrf_token%}
+  {{form}}
+  <button type="submit" class="btn btn-primary"> Register</button>
+  
+</form>
+{% endblock %}

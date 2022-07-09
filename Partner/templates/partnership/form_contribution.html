@@ -1,0 +1,26 @@
+{% extends 'partnership/partner_home.html' %}
+{%load static%}
+{% block title%}
+ Form_Contribute
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <br>
+    <div class="container-fluid">
+        <!-- Content here -->
+        <div class="card p-2" id="card">
+            <div class="card-titler">
+                <h3 style="text-align:center; text-transform: uppercase;">partner contribution</h3>
+            </div>
+                <form method="post" enctype="multipart/form-data"autocomplete="off" >
+                    {% csrf_token %}
+                    {{contribute_form|crispy}}
+                    <div class="mb-8">
+                        <button type="submit" class="btn btn-primary">PROCEED TO BILLING</button>
+                    </div>
+                <form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

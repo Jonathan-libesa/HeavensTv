@@ -5,7 +5,7 @@ from.models import*
 
 
 def aboutpage(request):
-	
 	about=About.objects.all()
 	context={'about':about}
 	return render(request,'about/about_heavens.html',context)
+

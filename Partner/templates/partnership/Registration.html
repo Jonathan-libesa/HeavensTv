@@ -15,14 +15,14 @@
 
    </head>
 <body>
-  {% include 'main/messages.html'%}
   <div class="container">
     <input type="checkbox" id="flip">
+
     <div class="cover">
       <div class="front">
         <img src="{% static 'assets/img/frontImg.jpg' %}" alt="">
         <div class="text">
-          <span class="text-1">Every new Partner is a <br> Gift to needy </span>
+          <span class="text-1">Every new Partner is a <br> Gift to  the needy </span>
           <span class="text-2">Let's get connected</span>
         </div>
       </div>
@@ -41,20 +41,23 @@
           {%csrf_token%}
             <div class="input-boxes">
               <div class="input-box">
-                {{form.first_name}}
                 <i class="fas fa-user"></i>
-               <input type="text" placeholder="Enter your First_name" >
+                {{form.username}}
+               <!--input type="text" placeholder="Enter your First_name" -->
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                {{form.first_name}}
+               <!--input type="text" placeholder="Enter your First_name" -->
               </div>
              
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your last_name">
                 {{form.last_name}}
               </div>
               
               <div class="input-box">
                 <i class="fa fa-phone"></i>
-                <input type="text" placeholder="Enter your phone Number">
                 {{form.phone}}
               </div>
               
@@ -65,46 +68,57 @@
                </div-->
               <div class="input-box">
                 <i class="fas fa-flag"></i>
-                <input type="text" placeholder="Enter your Country">
                 {{form.country}}
               </div>
               
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email">
                  {{form.email}}
               </div>
              
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password">
                 {{form.password1}}
               </div>
               
                <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm Your password">
                 {{form.password2}}
               </div>
               
               <div class="button input-box">
                 <input type="submit" value="Register Account">
               </div>
+
               <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
             </div>
       </form>
     </div>
     </div>
     </div>
-    <!-- Javascript to initialize the code list -->
-    <script>
-    var input = document.querySelector("#phone");
-    window.intlTelInput(input, {
-     separateDialCode: true
-     });
-   </script>
+    {% include 'main/messages.html'%}
   </div>
 </body>
+    <!-- Javascript to initialize the code list -->
+      <script>
+
+    //Query All input fields
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[6].placeholder='Enter Your username';
+    form_fields[7].placeholder='Enter Your First Name';
+    form_fields[8].placeholder='Enter Your Last Name';
+    form_fields[9].placeholder='Enter Your Phone Number with country code';
+    form_fields[10].placeholder='Enter Your country Name';
+    form_fields[11].placeholder='Enter Your Email';
+    form_fields[12].placeholder='Enter password';
+    form_fields[13].placeholder='Confirm password';
+
+
+
+    for (var field in form_fields){ 
+      form_fields[field].className += ' form-control'
+    }
+  </script>
 </html>
  
 

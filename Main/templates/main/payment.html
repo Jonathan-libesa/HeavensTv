@@ -1,0 +1,77 @@
+{% extends 'main/index.html'%}
+{% load static %}
+{% block content %}  
+<link rel="stylesheet" href="{% static 'assets/css/partner.css' %}">
+<script src="https://www.paypal.com/sdk/js?client-id=AWDOpVQ_oQT07_KR4nR1MWLBS9GBSHe6yhygMbaLfUEtGeLAfE5gtd2myTNlJwAWUs7JEkCYCkoSnHc5&currency=USD"></script>
+<div id="container">
+        <div class="column-12">
+            <div id="left-wrapper">
+                <img id="profile-pic" src="{% static 'assets/img/allan.jpg' %}">
+                <div id="left-wrapper-header">
+                    <h3> Do You Want To Donate :${{donate.amount}} dollars</h3>
+                    <h5>Amount :${{donate.amount}}</h5>
+                </div>
+                <div style="clear:left"></div>
+                <hr>
+                <!-- Add form here -->
+                <form >
+                
+                 <div id="paypal-button-container"></div>
+                </form>
+
+            
+            </div>
+        </div>
+        <br><br>
+        <div class="column-12">
+            <img src="{% static 'assets/img/paypal.png'%}">
+            <br><br>
+            <img src="{% static 'assets/img/pay.jpg'%}">
+        </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        var total ={{donate.amount}} 
+
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+            style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+            },
+
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{donate.amount}}'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    //var transaction = orderData.purchase_units[0].payments.captures[0];
+                    //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                    // Replace the above to show a success message within this page, e.g.
+                     const element = document.getElementById('paypal-button-container');
+                     //element.innerHTML = '';
+                     element.innerHTML = '<h3>Thank you for your contribution </h3>';
+                     //Or go to another URL:  actions.redirect('sucess.html')
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+          
+    
+{% endblock %}

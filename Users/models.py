@@ -13,6 +13,7 @@ class User(AbstractUser):
 	profile_pic=models.ImageField(default="no_avatar.jpg",null=True,blank=False,upload_to='Partner_profile_picture/')
 	country=models.CharField(max_length=50)
 	Occupation=models.CharField(max_length=100)
+	is_partner=models.BooleanField(default=False)
 
 
 

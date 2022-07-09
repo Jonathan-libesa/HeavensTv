@@ -1,0 +1,56 @@
+{% extends 'partnership/partner_home.html' %}
+{% load static %}
+ {% block title %}
+    Dashboard
+ {% endblock %}
+{% block content%}
+<!-- Begin Page Content -->
+                <div class="container-fluid">
+                  <h1 style="text-align:center;">WHY GIVE FOR GOD</h1>
+                 <a href="{% url 'contribute_view' %}"><button class="btn btn-primary">View Contribution</button></a>
+                  <br><br><br>
+                  {% include 'main/messages.html' %}
+                    <!-- Content Row -->
+                         <!-- Header Start -->
+                        <div class="jumbotron jumbotron-fluid bg-jumbotron" style="margin-bottom: 90px; background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url({%  static 'assets/img/dash-giving.jpg' %}), no-repeat center center;background-size: cover;">
+                            <div class="container text-center py-5">
+                              <h3 class="text-white display-3 mb-4">Giving</h3>
+                                <div class="d-inline-flex align-items-center text-white">
+                                    <p class="m-0"><a class="text-link" href="{% url 'home_partner' %}">Dashboard</a></p>
+                                    <i class="far fa-circle px-3"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                          <h5 class="align-items-center m-7">Help us spread the good news of Jesus Christ around the globe!</h5>
+
+                        </div>
+              
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Blessing
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> God
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->         
+{% endblock %}

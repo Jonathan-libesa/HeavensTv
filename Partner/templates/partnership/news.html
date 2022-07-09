@@ -1,0 +1,57 @@
+{% extends 'partnership/partner_home.html'%}
+{% load static %}
+{% block title %}
+ Event
+{% endblock %}
+{% block content %}
+
+<!-- Begin Page Content -->
+                <div class="container-fluid">
+                	 <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Lastest News</h1>
+                    </div>
+                    <div class="row-padding">
+
+                        <div class="col-md-12">
+
+                            <!-- Collapsable Card Example -->
+                            {% for news in new %}
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary" style="text-transform: uppercase;">{{news.Title}}</h6>
+                                </a>
+                                <span class="filter-txt"><small><b><i class="fa fa-time">POSTED:</i>{{news.date_created|timesince}} ago</b></small></span>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseCardExample">
+                                    <div class="card-body">
+                                        {{news.description|safe}}
+                                    </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                                    <div class="col-md-12">
+                                       <div class="card">
+                                            <div class="card-body">
+                                              <hr class="divider"  style="max-width: calc(100%)">
+                                              <br>
+                                              <p class="card-text text-black "style="text-align: center;">NO NEWS TO DISPLAY</p>
+                                              <hr class="divider"  style="max-width: calc(100%)">
+                                            </div>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+{% endblock %}
+

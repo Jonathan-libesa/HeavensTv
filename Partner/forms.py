@@ -7,15 +7,29 @@ from django.forms import ModelForm
 from Main.validators import validate_file_size,file_size
 
 class PartnerSignUpForm(UserCreationForm):
+    first_name=forms.CharField(required=True)
+    last_name=forms.CharField(required=True)
     class Meta(UserCreationForm.Meta):
         model=User
-        fields=['first_name','last_name','email','country','phone','Occupation','password1','password2']
+        fields=['username','first_name','last_name','phone','country','email','password1','password2']
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_partner = True
+        user.first_name = self.cleaned_data.get('first_name')
+        user.last_name = self.cleaned_data.get('last_name')
+        user.save()
+        partner= Partner.objects.create(user=user)
+        partner.save()
+        return user
+
 
 class UserForm(ModelForm):
     profile_pic=forms.ImageField(required=True,validators=[file_size])
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['username', 'email','first_name','last_name','phone','profile_pic','country','Occupation']
 
 
 class DonateForm(forms.ModelForm):
@@ -24,3 +38,8 @@ class DonateForm(forms.ModelForm):
         fields='__all__'
 
 
+class ContributeForm(forms.ModelForm):
+    class Meta:
+        model=Contribute
+        fields='__all__'
+        exclude =['partner']
